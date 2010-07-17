@@ -31,6 +31,12 @@
 		<compiler.version>1.6</compiler.version>
 	</properties>
 
+	<scm>
+		<url>https://jnlpdownloader.googlecode.com/svn/trunk/jnlpdownloader</url>
+		<connection>scm:https://jnlpdownloader.googlecode.com/svn/trunk/jnlpdownloader</connection>
+		<developerConnection>scm:svn:https://jnlpdownloader.googlecode.com/svn/trunk/jnlpdownloader</developerConnection>
+	</scm>
+
 	<build>
 
 		<plugins>
