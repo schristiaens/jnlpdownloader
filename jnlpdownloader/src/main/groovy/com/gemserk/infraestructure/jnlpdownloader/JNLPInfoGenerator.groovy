@@ -12,6 +12,8 @@ class JNLPInfoGenerator {
 		JNLPInfo jnlpinfo = new JNLPInfo()
 		
 		def http = new HTTPBuilder(jnlpurl)
+		
+		http.setParserRegistry(new com.gemserk.infraestructure.jnlpdownloader.ParserRegistryWithoutValidation())
 		def jnlp = http.get( contentType:groovyx.net.http.ContentType.XML)
 		String codebaseText = jnlp.@codebase.text()
 		if(!codebaseText.endsWith("/"))
