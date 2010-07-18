@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.gemserk.infraestructure.jnlpdownloader</groupId>
 	<artifactId>jnlpdownloader</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>jnlpdownloader</name>
@@ -31,9 +31,9 @@
 	</properties>
 
 	<scm>
-		<url>https://jnlpdownloader.googlecode.com/svn/trunk/jnlpdownloader</url>
-		<connection>scm:https://jnlpdownloader.googlecode.com/svn/trunk/jnlpdownloader</connection>
-		<developerConnection>scm:svn:https://jnlpdownloader.googlecode.com/svn/trunk/jnlpdownloader</developerConnection>
+		<url>https://jnlpdownloader.googlecode.com/svn/tags/jnlpdownloader-0.0.2</url>
+		<connection>scm:https://jnlpdownloader.googlecode.com/svn/tags/jnlpdownloader-0.0.2</connection>
+		<developerConnection>scm:svn:https://jnlpdownloader.googlecode.com/svn/tags/jnlpdownloader-0.0.2</developerConnection>
 	</scm>
 
 	<build>
