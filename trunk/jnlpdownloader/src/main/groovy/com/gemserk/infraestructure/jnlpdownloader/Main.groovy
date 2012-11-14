@@ -24,7 +24,12 @@ class Main {
 			response.success = { resp, InputStream reader ->
 				assert resp.statusLine.statusCode == 200
 				println "My response handler got response: ${resp.statusLine}"
-				long fileLength = Long.parseLong(resp.headers.'Content-Length')
+				long fileLength;
+				try {
+					fileLength = Long.parseLong(resp.headers.'Content-Length')
+				} catch (Exception e){
+					fileLength = 0
+				}
 				println "Response length: ${fileLength/(1024)}kB"
 				
 				destFile.withOutputStream {OutputStream outputStream -> 
@@ -37,7 +42,9 @@ class Main {
 					int lastDownloaded = 0
 					while((chunkSize = reader.read(buffer))!=-1){
 						outputStream.write(buffer, 0, chunkSize)
-						
+						if(fileLength==0)
+							continue
+
 						downloaded+=chunkSize
 						def percent = (downloaded/fileLength)*100
 						if(percent == 100){
@@ -108,6 +115,10 @@ class Main {
 			nativeDirByOs.mkdirs()
 			resourceInfo.natives.each { natives ->
 				futures << downloadFileHelper(http, natives, nativeDirByOs)
+			}
+
+			resourceInfo.natives.each { natives ->
+				futures << downloadFileHelper(http, natives, jarsDir)
 			}
 			
 			resourceInfo.jars.each { jar ->
